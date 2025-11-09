@@ -1,0 +1,25 @@
+{
+  "name": "ausum-software.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server",
+    "dev": "live-server --port=8080 --open=index.html",
+    "clean": "rimraf docs",
+    "mkdir": "mkdir -p docs",
+    "minify:html": "html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true -o docs/index.html index.html",
+    "copy:assets": "copyfiles -u 0 images/** CNAME docs",
+    "build": "npm run clean && npm run mkdir && npm run minify:html && npm run copy:assets",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "html-minifier-terser": "^7.2.0",
+    "live-server": "^1.2.2",
+    "rimraf": "^6.1.0"
+  }
+}
